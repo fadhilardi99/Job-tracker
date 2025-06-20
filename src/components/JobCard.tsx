@@ -40,10 +40,10 @@ export const JobCard: React.FC<JobCardProps> = ({ job, onEdit, onDelete }) => {
             <Briefcase size={20} className="text-white" />
           </div>
           <div>
-            <h3 className="text-md font-bold text-text-primary leading-tight">
+            <h3 className="text-md font-bold text-gray-900 leading-tight">
               {job.position}
             </h3>
-            <p className="text-sm text-text-secondary">{job.company}</p>
+            <p className="text-sm text-gray-700">{job.company}</p>
           </div>
         </div>
         <span
@@ -56,7 +56,7 @@ export const JobCard: React.FC<JobCardProps> = ({ job, onEdit, onDelete }) => {
       </div>
 
       {/* Details */}
-      <div className="space-y-3 text-sm text-text-secondary mb-4 flex-grow">
+      <div className="space-y-3 text-sm text-gray-600 mb-4 flex-grow">
         <div className="flex items-center space-x-2">
           <MapPin size={14} className="flex-shrink-0 text-blue-500" />
           <span>{job.location}</span>
@@ -82,7 +82,7 @@ export const JobCard: React.FC<JobCardProps> = ({ job, onEdit, onDelete }) => {
             href={job.jobUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center space-x-1 text-sm text-primary hover:underline hover:text-blue-600 transition-colors"
+            className="flex items-center space-x-1 text-sm text-blue-600 hover:underline hover:text-blue-700 transition-colors"
           >
             <ExternalLink size={14} />
             <span>View Post</span>
@@ -93,14 +93,14 @@ export const JobCard: React.FC<JobCardProps> = ({ job, onEdit, onDelete }) => {
         <div className="flex space-x-1">
           <button
             onClick={() => onEdit(job)}
-            className="p-2 text-text-muted hover:text-blue-500 hover:bg-blue-50 rounded-md transition-all duration-200"
+            className="p-2 text-gray-500 hover:text-blue-500 hover:bg-blue-50 rounded-md transition-all duration-200"
             title="Edit"
           >
             <Edit size={16} />
           </button>
           <button
             onClick={() => job.id && onDelete(job.id)}
-            className="p-2 text-text-muted hover:text-red-500 hover:bg-red-50 rounded-md transition-all duration-200"
+            className="p-2 text-gray-500 hover:text-red-500 hover:bg-red-50 rounded-md transition-all duration-200"
             title="Delete"
           >
             <Trash2 size={16} />

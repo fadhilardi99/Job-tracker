@@ -59,7 +59,7 @@ export const JobForm: React.FC<JobFormProps> = ({
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <label className="block text-sm font-semibold text-text-secondary mb-2">
+            <label className="block text-sm font-semibold text-gray-700 mb-2">
               Company Name *
             </label>
             <input
@@ -68,11 +68,11 @@ export const JobForm: React.FC<JobFormProps> = ({
               value={formData.company}
               onChange={handleChange}
               required
-              className="w-full px-4 py-2 border border-card-border rounded-lg focus:ring-2 focus:ring-primary focus:border-primary bg-gray-50 focus:bg-white transition-colors"
+              className="w-full px-4 py-2 border border-card-border rounded-lg focus:ring-2 focus:ring-primary focus:border-primary bg-gray-50 focus:bg-white transition-colors text-gray-900"
             />
           </div>
           <div>
-            <label className="block text-sm font-semibold text-text-secondary mb-2">
+            <label className="block text-sm font-semibold text-gray-700 mb-2">
               Job Position *
             </label>
             <input
@@ -81,21 +81,21 @@ export const JobForm: React.FC<JobFormProps> = ({
               value={formData.position}
               onChange={handleChange}
               required
-              className="w-full px-4 py-2 border border-card-border rounded-lg focus:ring-2 focus:ring-primary focus:border-primary bg-gray-50 focus:bg-white transition-colors"
+              className="w-full px-4 py-2 border border-card-border rounded-lg focus:ring-2 focus:ring-primary focus:border-primary bg-gray-50 focus:bg-white transition-colors text-gray-900"
             />
           </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <label className="block text-sm font-semibold text-text-secondary mb-2">
+            <label className="block text-sm font-semibold text-gray-700 mb-2">
               Status
             </label>
             <select
               name="status"
               value={formData.status}
               onChange={handleChange}
-              className="w-full px-4 py-2 border border-card-border rounded-lg focus:ring-2 focus:ring-primary focus:border-primary bg-gray-50 focus:bg-white transition-colors"
+              className="w-full px-4 py-2 border border-card-border rounded-lg focus:ring-2 focus:ring-primary focus:border-primary bg-gray-50 focus:bg-white transition-colors text-gray-900"
             >
               <option value="applied" className="text-blue-600">
                 Applied
@@ -112,7 +112,7 @@ export const JobForm: React.FC<JobFormProps> = ({
             </select>
           </div>
           <div>
-            <label className="block text-sm font-semibold text-text-secondary mb-2">
+            <label className="block text-sm font-semibold text-gray-700 mb-2">
               Date Applied *
             </label>
             <input
@@ -121,14 +121,14 @@ export const JobForm: React.FC<JobFormProps> = ({
               value={formData.appliedDate}
               onChange={handleChange}
               required
-              className="w-full px-4 py-2 border border-card-border rounded-lg focus:ring-2 focus:ring-primary focus:border-primary bg-gray-50 focus:bg-white transition-colors"
+              className="w-full px-4 py-2 border border-card-border rounded-lg focus:ring-2 focus:ring-primary focus:border-primary bg-gray-50 focus:bg-white transition-colors text-gray-900"
             />
           </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <label className="block text-sm font-semibold text-text-secondary mb-2">
+            <label className="block text-sm font-semibold text-gray-700 mb-2">
               Location *
             </label>
             <input
@@ -137,11 +137,11 @@ export const JobForm: React.FC<JobFormProps> = ({
               value={formData.location}
               onChange={handleChange}
               required
-              className="w-full px-4 py-2 border border-card-border rounded-lg focus:ring-2 focus:ring-primary focus:border-primary bg-gray-50 focus:bg-white transition-colors"
+              className="w-full px-4 py-2 border border-card-border rounded-lg focus:ring-2 focus:ring-primary focus:border-primary bg-gray-50 focus:bg-white transition-colors text-gray-900"
             />
           </div>
           <div>
-            <label className="block text-sm font-semibold text-text-secondary mb-2">
+            <label className="block text-sm font-semibold text-gray-700 mb-2">
               Salary Range
             </label>
             <input
@@ -149,14 +149,14 @@ export const JobForm: React.FC<JobFormProps> = ({
               name="salary"
               value={formData.salary}
               onChange={handleChange}
-              className="w-full px-4 py-2 border border-card-border rounded-lg focus:ring-2 focus:ring-primary focus:border-primary bg-gray-50 focus:bg-white transition-colors"
+              className="w-full px-4 py-2 border border-card-border rounded-lg focus:ring-2 focus:ring-primary focus:border-primary bg-gray-50 focus:bg-white transition-colors text-gray-900"
               placeholder="e.g., $80,000 - $100,000"
             />
           </div>
         </div>
 
         <div>
-          <label className="block text-sm font-semibold text-text-secondary mb-2">
+          <label className="block text-sm font-semibold text-gray-700 mb-2">
             Job Posting URL
           </label>
           <input
@@ -164,13 +164,13 @@ export const JobForm: React.FC<JobFormProps> = ({
             name="jobUrl"
             value={formData.jobUrl}
             onChange={handleChange}
-            className="w-full px-4 py-2 border border-card-border rounded-lg focus:ring-2 focus:ring-primary focus:border-primary bg-gray-50 focus:bg-white transition-colors"
+            className="w-full px-4 py-2 border border-card-border rounded-lg focus:ring-2 focus:ring-primary focus:border-primary bg-gray-50 focus:bg-white transition-colors text-gray-900"
             placeholder="https://company.com/careers/job-id"
           />
         </div>
 
         <div>
-          <label className="block text-sm font-semibold text-text-secondary mb-2">
+          <label className="block text-sm font-semibold text-gray-700 mb-2">
             Notes
           </label>
           <textarea
@@ -178,7 +178,7 @@ export const JobForm: React.FC<JobFormProps> = ({
             value={formData.notes}
             onChange={handleChange}
             rows={4}
-            className="w-full px-4 py-2 border border-card-border rounded-lg focus:ring-2 focus:ring-primary focus:border-primary bg-gray-50 focus:bg-white transition-colors"
+            className="w-full px-4 py-2 border border-card-border rounded-lg focus:ring-2 focus:ring-primary focus:border-primary bg-gray-50 focus:bg-white transition-colors text-gray-900"
             placeholder="Add notes about the role, interview, etc."
           />
         </div>
@@ -187,7 +187,7 @@ export const JobForm: React.FC<JobFormProps> = ({
           <button
             type="button"
             onClick={onClose}
-            className="bg-gray-100 text-text-secondary py-2 px-5 rounded-lg hover:bg-gray-200 transition-colors font-semibold"
+            className="bg-gray-100 text-gray-700 py-2 px-5 rounded-lg hover:bg-gray-200 transition-colors font-semibold"
           >
             Cancel
           </button>

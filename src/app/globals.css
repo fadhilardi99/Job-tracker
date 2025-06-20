@@ -13,9 +13,9 @@
   --card-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05),
     0 1px 2px 0 rgba(0, 0, 0, 0.02);
 
-  --text-primary: #1f2937;
-  --text-secondary: #6b7280;
-  --text-muted: #9ca3af;
+  --text-primary: #111827;
+  --text-secondary: #374151;
+  --text-muted: #6b7280;
 
   --status-applied-bg: #eff6ff;
   --status-applied-text: #2563eb;
@@ -44,34 +44,62 @@ body {
 
 /* Force dark text color on all elements */
 * {
-  color: var(--text-primary) !important;
+  color: #111827 !important;
 }
 
+/* Specific overrides for common text elements */
 h1,
 h2,
 h3,
 h4,
 h5,
-h6,
+h6 {
+  color: #111827 !important;
+  font-weight: 700;
+}
+
 p,
 span,
 div,
+label,
 button,
 input,
 select,
-textarea {
-  color: #1f2937;
+textarea,
+option {
+  color: #111827 !important;
 }
 
-h1,
-h2,
-h3 {
-  font-weight: 700;
+/* Override any text utility classes that might be light */
+.text-white {
+  color: #111827 !important;
 }
-h4,
-h5,
-h6 {
-  font-weight: 600;
+
+.text-gray-100,
+.text-gray-200,
+.text-gray-300,
+.text-gray-400 {
+  color: #374151 !important;
+}
+
+.text-gray-500,
+.text-gray-600 {
+  color: #111827 !important;
+}
+
+/* Keep specific colors for status badges and icons */
+.bg-blue-400,
+.bg-yellow-400,
+.bg-green-500,
+.bg-red-500 {
+  color: white !important;
+}
+
+.text-blue-500,
+.text-green-500,
+.text-yellow-500,
+.text-red-500 {
+  color: inherit !important;
 }
 
 .font-medium {
