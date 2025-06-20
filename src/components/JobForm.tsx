@@ -43,125 +43,159 @@ export const JobForm: React.FC<JobFormProps> = ({
   };
 
   return (
-    <div className="bg-white border border-gray-200 rounded-2xl shadow-2xl p-8 max-w-2xl mx-auto animate-fade-in">
-      <div className="flex items-center gap-3 mb-6 border-b border-gray-100 pb-4">
-        <Briefcase size={28} className="text-primary" />
-        <h2 className="text-2xl font-black text-gray-900">
-          {initialData ? "Edit Job" : "Tambah Lamaran"}
-        </h2>
+    <div className="bg-white rounded-lg border border-card-border p-8 shadow-sm max-w-3xl mx-auto">
+      <div className="flex items-center space-x-4 mb-8 pb-4 border-b border-gray-200">
+        <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg p-3 shadow-md">
+          <Briefcase size={24} className="text-white" />
+        </div>
+        <div>
+          <h2 className="text-xl font-bold text-text-primary">
+            {initialData ? "Edit Application" : "Add New Application"}
+          </h2>
+          <p className="text-text-secondary">Fill in the details below.</p>
+        </div>
       </div>
-      <form
-        onSubmit={handleSubmit}
-        className="grid grid-cols-1 md:grid-cols-2 gap-6"
-      >
-        <div className="flex flex-col gap-2">
-          <label className="text-xs font-bold text-gray-600">
-            Perusahaan *
-          </label>
-          <input
-            type="text"
-            name="company"
-            value={formData.company}
-            onChange={handleChange}
-            required
-            className="w-full p-3 border border-gray-300 rounded-lg font-bold text-lg focus:ring-2 focus:ring-primary focus:border-primary transition"
-          />
+
+      <form onSubmit={handleSubmit} className="space-y-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label className="block text-sm font-semibold text-text-secondary mb-2">
+              Company Name *
+            </label>
+            <input
+              type="text"
+              name="company"
+              value={formData.company}
+              onChange={handleChange}
+              required
+              className="w-full px-4 py-2 border border-card-border rounded-lg focus:ring-2 focus:ring-primary focus:border-primary bg-gray-50 focus:bg-white transition-colors"
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-semibold text-text-secondary mb-2">
+              Job Position *
+            </label>
+            <input
+              type="text"
+              name="position"
+              value={formData.position}
+              onChange={handleChange}
+              required
+              className="w-full px-4 py-2 border border-card-border rounded-lg focus:ring-2 focus:ring-primary focus:border-primary bg-gray-50 focus:bg-white transition-colors"
+            />
+          </div>
         </div>
-        <div className="flex flex-col gap-2">
-          <label className="text-xs font-bold text-gray-600">Posisi *</label>
-          <input
-            type="text"
-            name="position"
-            value={formData.position}
-            onChange={handleChange}
-            required
-            className="w-full p-3 border border-gray-300 rounded-lg font-bold text-lg focus:ring-2 focus:ring-primary focus:border-primary transition"
-          />
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label className="block text-sm font-semibold text-text-secondary mb-2">
+              Status
+            </label>
+            <select
+              name="status"
+              value={formData.status}
+              onChange={handleChange}
+              className="w-full px-4 py-2 border border-card-border rounded-lg focus:ring-2 focus:ring-primary focus:border-primary bg-gray-50 focus:bg-white transition-colors"
+            >
+              <option value="applied" className="text-blue-600">
+                Applied
+              </option>
+              <option value="interview" className="text-yellow-600">
+                Interview
+              </option>
+              <option value="offer" className="text-green-600">
+                Offer
+              </option>
+              <option value="rejected" className="text-red-600">
+                Rejected
+              </option>
+            </select>
+          </div>
+          <div>
+            <label className="block text-sm font-semibold text-text-secondary mb-2">
+              Date Applied *
+            </label>
+            <input
+              type="date"
+              name="appliedDate"
+              value={formData.appliedDate}
+              onChange={handleChange}
+              required
+              className="w-full px-4 py-2 border border-card-border rounded-lg focus:ring-2 focus:ring-primary focus:border-primary bg-gray-50 focus:bg-white transition-colors"
+            />
+          </div>
         </div>
-        <div className="flex flex-col gap-2">
-          <label className="text-xs font-bold text-gray-600">Status</label>
-          <select
-            name="status"
-            value={formData.status}
-            onChange={handleChange}
-            className="w-full p-3 border border-gray-300 rounded-lg font-bold text-lg focus:ring-2 focus:ring-primary focus:border-primary transition"
-          >
-            <option value="applied">Dilamar</option>
-            <option value="interview">Interview</option>
-            <option value="offer">Tawaran</option>
-            <option value="rejected">Ditolak</option>
-          </select>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label className="block text-sm font-semibold text-text-secondary mb-2">
+              Location *
+            </label>
+            <input
+              type="text"
+              name="location"
+              value={formData.location}
+              onChange={handleChange}
+              required
+              className="w-full px-4 py-2 border border-card-border rounded-lg focus:ring-2 focus:ring-primary focus:border-primary bg-gray-50 focus:bg-white transition-colors"
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-semibold text-text-secondary mb-2">
+              Salary Range
+            </label>
+            <input
+              type="text"
+              name="salary"
+              value={formData.salary}
+              onChange={handleChange}
+              className="w-full px-4 py-2 border border-card-border rounded-lg focus:ring-2 focus:ring-primary focus:border-primary bg-gray-50 focus:bg-white transition-colors"
+              placeholder="e.g., $80,000 - $100,000"
+            />
+          </div>
         </div>
-        <div className="flex flex-col gap-2">
-          <label className="text-xs font-bold text-gray-600">
-            Tanggal Lamar *
-          </label>
-          <input
-            type="date"
-            name="appliedDate"
-            value={formData.appliedDate}
-            onChange={handleChange}
-            required
-            className="w-full p-3 border border-gray-300 rounded-lg font-bold text-lg focus:ring-2 focus:ring-primary focus:border-primary transition"
-          />
-        </div>
-        <div className="flex flex-col gap-2">
-          <label className="text-xs font-bold text-gray-600">Lokasi *</label>
-          <input
-            type="text"
-            name="location"
-            value={formData.location}
-            onChange={handleChange}
-            required
-            className="w-full p-3 border border-gray-300 rounded-lg font-bold text-lg focus:ring-2 focus:ring-primary focus:border-primary transition"
-          />
-        </div>
-        <div className="flex flex-col gap-2">
-          <label className="text-xs font-bold text-gray-600">Gaji</label>
-          <input
-            type="text"
-            name="salary"
-            value={formData.salary}
-            onChange={handleChange}
-            placeholder="cth: Rp10.000.000"
-            className="w-full p-3 border border-gray-300 rounded-lg font-bold text-lg focus:ring-2 focus:ring-primary focus:border-primary transition"
-          />
-        </div>
-        <div className="flex flex-col gap-2 md:col-span-2">
-          <label className="text-xs font-bold text-gray-600">
-            URL Lowongan
+
+        <div>
+          <label className="block text-sm font-semibold text-text-secondary mb-2">
+            Job Posting URL
           </label>
           <input
             type="url"
             name="jobUrl"
             value={formData.jobUrl}
             onChange={handleChange}
-            className="w-full p-3 border border-gray-300 rounded-lg font-bold text-lg focus:ring-2 focus:ring-primary focus:border-primary transition"
+            className="w-full px-4 py-2 border border-card-border rounded-lg focus:ring-2 focus:ring-primary focus:border-primary bg-gray-50 focus:bg-white transition-colors"
+            placeholder="https://company.com/careers/job-id"
           />
         </div>
-        <div className="flex flex-col gap-2 md:col-span-2">
-          <label className="text-xs font-bold text-gray-600">Catatan</label>
+
+        <div>
+          <label className="block text-sm font-semibold text-text-secondary mb-2">
+            Notes
+          </label>
           <textarea
             name="notes"
             value={formData.notes}
             onChange={handleChange}
-            rows={3}
-            className="w-full p-3 border border-gray-300 rounded-lg font-bold text-lg focus:ring-2 focus:ring-primary focus:border-primary transition"
+            rows={4}
+            className="w-full px-4 py-2 border border-card-border rounded-lg focus:ring-2 focus:ring-primary focus:border-primary bg-gray-50 focus:bg-white transition-colors"
+            placeholder="Add notes about the role, interview, etc."
           />
         </div>
-        <div className="flex gap-3 md:col-span-2 pt-2">
-          <button
-            type="submit"
-            className="flex-1 bg-gradient-to-r from-primary to-primary-dark text-white py-3 px-4 rounded-lg shadow-lg hover:scale-105 hover:from-primary-dark hover:to-primary transition-all font-black text-lg"
-          >
-            {initialData ? "Update" : "Tambah"} Lamaran
-          </button>
+
+        <div className="flex justify-end space-x-4 pt-6 border-t border-gray-100">
           <button
             type="button"
             onClick={onClose}
-            className="flex-1 bg-gray-200 text-gray-700 py-3 px-4 rounded-lg hover:bg-gray-300 transition-colors font-bold text-lg shadow"
+            className="bg-gray-100 text-text-secondary py-2 px-5 rounded-lg hover:bg-gray-200 transition-colors font-semibold"
           >
-            Batal
+            Cancel
+          </button>
+          <button
+            type="submit"
+            className="bg-gradient-to-r from-blue-500 to-blue-600 text-white py-2 px-5 rounded-lg hover:from-blue-600 hover:to-blue-700 transition-all duration-200 font-semibold shadow-md hover:shadow-lg"
+          >
+            {initialData ? "Save Changes" : "Save Application"}
           </button>
         </div>
       </form>

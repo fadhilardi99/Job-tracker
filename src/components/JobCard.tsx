@@ -16,104 +16,97 @@ interface JobCardProps {
   onDelete: (id: string) => void;
 }
 
-const statusColors = {
-  applied: "border-l-8 border-blue-500 bg-blue-50",
-  interview: "border-l-8 border-yellow-500 bg-yellow-50",
-  offer: "border-l-8 border-green-500 bg-green-50",
-  rejected: "border-l-8 border-red-500 bg-red-50",
-};
-
 const statusBadge = {
-  applied: "bg-blue-600 text-white",
-  interview: "bg-yellow-500 text-white",
-  offer: "bg-green-600 text-white",
-  rejected: "bg-red-600 text-white",
+  applied: "bg-gradient-to-r from-blue-400 to-blue-500 text-white",
+  interview: "bg-gradient-to-r from-yellow-400 to-yellow-500 text-white",
+  offer: "bg-gradient-to-r from-green-400 to-green-500 text-white",
+  rejected: "bg-gradient-to-r from-red-400 to-red-500 text-white",
 };
 
 const statusLabels = {
-  applied: "Dilamar",
+  applied: "Applied",
   interview: "Interview",
-  offer: "Tawaran",
-  rejected: "Ditolak",
+  offer: "Offer",
+  rejected: "Rejected",
 };
 
 export const JobCard: React.FC<JobCardProps> = ({ job, onEdit, onDelete }) => {
   return (
-    <div
-      className={`rounded-2xl shadow-2xl border border-gray-200 p-7 mb-2 flex flex-col gap-4 transition-all duration-200 hover:scale-[1.02] hover:shadow-3xl ${
-        statusColors[job.status]
-      }`}
-    >
-      <div className="flex items-center gap-3 mb-2">
-        <Briefcase size={28} className="text-black" />
-        <div>
-          <h3 className="text-xl md:text-2xl font-black text-gray-900 mb-1">
-            {job.position}
-          </h3>
-          <p className="text-gray-700 text-lg font-bold">{job.company}</p>
-        </div>
-      </div>
-      <div className="flex flex-wrap gap-4 mb-2">
-        <div className="flex items-center gap-2 text-base text-gray-700 font-bold">
-          <MapPin size={16} />
-          <span>{job.location}</span>
-        </div>
-        <div className="flex items-center gap-2 text-base text-gray-700 font-bold">
-          <Calendar size={16} />
-          <span>{new Date(job.appliedDate).toLocaleDateString()}</span>
-        </div>
-        {job.salary && (
-          <div className="flex items-center gap-2 text-base text-gray-700 font-bold">
-            <DollarSign size={16} />
-            <span>{job.salary}</span>
+    <div className="bg-white rounded-lg border border-card-border p-5 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col hover:border-blue-200">
+      {/* Header */}
+      <div className="flex items-start justify-between mb-4">
+        <div className="flex items-center space-x-3">
+          <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg p-3 shadow-sm">
+            <Briefcase size={20} className="text-white" />
           </div>
-        )}
-        {job.jobUrl && (
-          <div className="flex items-center gap-2 text-base font-bold text-black">
-            <ExternalLink size={16} />
-            <a
-              href={job.jobUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary hover:text-primary-dark underline"
-            >
-              Lihat Lowongan
-            </a>
+          <div>
+            <h3 className="text-md font-bold text-text-primary leading-tight">
+              {job.position}
+            </h3>
+            <p className="text-sm text-text-secondary">{job.company}</p>
           </div>
-        )}
-      </div>
-      <div className="flex items-center gap-3">
+        </div>
         <span
-          className={`px-4 py-1 rounded-full text-base font-black shadow-sm transition-all duration-200 ${
+          className={`px-3 py-1 text-xs font-semibold rounded-full whitespace-nowrap shadow-sm ${
             statusBadge[job.status]
           }`}
         >
           {statusLabels[job.status]}
         </span>
-        <div className="flex gap-2 ml-auto text-black">
+      </div>
+
+      {/* Details */}
+      <div className="space-y-3 text-sm text-text-secondary mb-4 flex-grow">
+        <div className="flex items-center space-x-2">
+          <MapPin size={14} className="flex-shrink-0 text-blue-500" />
+          <span>{job.location}</span>
+        </div>
+        <div className="flex items-center space-x-2">
+          <Calendar size={14} className="flex-shrink-0 text-green-500" />
+          <span>
+            Applied on {new Date(job.appliedDate).toLocaleDateString()}
+          </span>
+        </div>
+        {job.salary && (
+          <div className="flex items-center space-x-2">
+            <DollarSign size={14} className="flex-shrink-0 text-yellow-500" />
+            <span>{job.salary}</span>
+          </div>
+        )}
+      </div>
+
+      {/* Footer */}
+      <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+        {job.jobUrl ? (
+          <a
+            href={job.jobUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center space-x-1 text-sm text-primary hover:underline hover:text-blue-600 transition-colors"
+          >
+            <ExternalLink size={14} />
+            <span>View Post</span>
+          </a>
+        ) : (
+          <div />
+        )}
+        <div className="flex space-x-1">
           <button
             onClick={() => onEdit(job)}
-            className="p-2 text-primary hover:bg-primary/10 hover:text-primary-dark rounded-lg transition-colors shadow text-lg font-black"
+            className="p-2 text-text-muted hover:text-blue-500 hover:bg-blue-50 rounded-md transition-all duration-200"
             title="Edit"
           >
-            <Edit size={20} />
+            <Edit size={16} />
           </button>
           <button
             onClick={() => job.id && onDelete(job.id)}
-            className="p-2 text-danger hover:bg-danger/10 hover:text-danger rounded-lg transition-colors shadow text-lg font-black"
+            className="p-2 text-text-muted hover:text-red-500 hover:bg-red-50 rounded-md transition-all duration-200"
             title="Delete"
           >
-            <Trash2 size={20} />
+            <Trash2 size={16} />
           </button>
         </div>
       </div>
-      {job.notes && (
-        <div className="mt-4 p-4 bg-gray-50 rounded-lg border border-gray-100">
-          <p className="text-base text-gray-700 italic font-bold">
-            {job.notes}
-          </p>
-        </div>
-      )}
     </div>
   );
 };
